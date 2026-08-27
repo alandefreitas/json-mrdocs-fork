@@ -22,6 +22,9 @@ template<typename ValueType, typename>
 struct adl_serializer
 {
     /// @brief convert a JSON value to any value type
+    /// @param j JSON value to read from
+    /// @param val value to write the converted result to
+    /// @return nothing; the result is written to @a val
     /// @sa https://json.nlohmann.me/api/adl_serializer/from_json/
     template<typename BasicJsonType, typename TargetType = ValueType>
     static auto from_json(BasicJsonType && j, TargetType& val) noexcept(
@@ -32,6 +35,8 @@ struct adl_serializer
     }
 
     /// @brief convert a JSON value to any value type
+    /// @param j JSON value to read from
+    /// @return the JSON value converted to @a TargetType
     /// @sa https://json.nlohmann.me/api/adl_serializer/from_json/
     template<typename BasicJsonType, typename TargetType = ValueType>
     static auto from_json(BasicJsonType && j) noexcept(
@@ -42,6 +47,9 @@ struct adl_serializer
     }
 
     /// @brief convert any value type to a JSON value
+    /// @param j JSON value to write the result to
+    /// @param val value to convert
+    /// @return nothing; the result is written to @a j
     /// @sa https://json.nlohmann.me/api/adl_serializer/to_json/
     template<typename BasicJsonType, typename TargetType = ValueType>
     static auto to_json(BasicJsonType& j, TargetType && val) noexcept(

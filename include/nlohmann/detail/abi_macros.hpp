@@ -98,6 +98,7 @@
 #define NLOHMANN_JSON_NAMESPACE_BEGIN                \
     namespace nlohmann                               \
     {                                                \
+    /** @brief ABI-tagged, versioned inline namespace holding the library's types and functions */ \
     inline namespace NLOHMANN_JSON_NAMESPACE_CONCAT( \
                 NLOHMANN_JSON_ABI_TAGS,              \
                 NLOHMANN_JSON_NAMESPACE_VERSION)     \
